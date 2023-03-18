@@ -1,0 +1,25 @@
+.book-data-table{
+    border-collapse: separate;
+    min-width: 25px 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.book-data-table th, td{
+    padding: 10px 50px;
+}
+
+.book-data-table tbody, td{
+    border-bottom: 1px solid darkgray;
+}
+
+.checkout-button {
+    margin-top: 20px;
+    border-radius: 10%;
+    box-shadow: inset;
+    outline: none;
+    background-color: green;
+    flex-direction: row;
+}
+

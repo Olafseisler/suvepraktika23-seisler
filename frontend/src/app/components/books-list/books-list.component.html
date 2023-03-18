@@ -1,6 +1,6 @@
 <div class="container mat-elevation-z4">
   <mat-card>
-    <mat-card-title>Books</mat-card-title>
+    <mat-card-title class="page-title">Books</mat-card-title>
     <mat-card-content>
       <mat-nav-list *ngIf="(books$ | async) as books">
         <a mat-list-item *ngFor="let book of books.content" [routerLink]="['/books', book.id]">

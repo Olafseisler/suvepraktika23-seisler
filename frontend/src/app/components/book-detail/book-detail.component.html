@@ -1,1 +1,77 @@
-<pre>{{book$ | async | json}}</pre>
+<!-- <pre>{{book$ | async | json}}</pre> -->
+
+
+<div class="book-detail-element" *ngIf="(book$ | async) as book">
+    
+    <!-- <table mat-table >
+        <ng-container matRowDef="property">>
+            <th mat-header-cell *matHeaderCellDef>Property</th>
+            <td mat-cell *matCellDef="let book">
+            </td>
+        </ng-container>
+
+        
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        
+    </table> -->
+
+    <table class="book-data-table">
+        <h1>Book info</h1>
+
+        <tr >
+            <td>ID</td>
+            <td>{{book.id}}</td>
+        </tr>
+        <tr >
+            <td>Title</td>
+            <td>{{book.title}}</td>
+        </tr>
+        <tr >
+            <td>Author</td>
+            <td>{{book.author}}</td>
+        </tr>
+        <tr >
+            <td>Genre</td>
+            <td>{{book.genre}}</td>
+        </tr>
+        <tr >
+            <td>Year</td>
+            <td>{{book.year}}</td>
+        </tr>
+        <tr >
+            <td>Added</td>
+            <td>{{book.added}}</td>
+        </tr>
+        <tr >
+            <td>Checkout Count</td>
+            <td>{{book.checkOutCount}}</td>
+        </tr>
+        <tr >
+            <td>Status</td>
+            <td>{{book.status}}</td>
+        </tr>
+        <tr >
+            <td>Due Date</td>
+            <td>{{book.dueDate}}</td>
+        </tr>
+        <tr >
+            <td>Comment</td>
+            <td>{{book.comment}}</td>
+        </tr>
+
+        <button class="checkout-button" [routerLink]="['/checkout', book.id]">Checkout book</button>
+    </table>
+  </div> 
+
+  <!-- id: string;
+    title: string;
+    author: string;
+    genre: string;
+    year: number;
+    added: string;
+    checkOutCount: number;
+    status: BookStatus;
+    dueDate: string;
+    comment: string; -->
