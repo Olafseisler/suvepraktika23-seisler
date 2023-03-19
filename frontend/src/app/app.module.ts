@@ -8,13 +8,19 @@ import { MaterialModule } from './material/material.module';
 import { BooksListComponent } from './components/books-list/books-list.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { HttpClientModule } from '@angular/common/http';
-import { BookCheckoutComponent } from './components/book-checkout/book-checkout.component';
+import { BookCheckoutComponent } from './components/book-checkout-dialog/book-checkout.component';
+import { SearchComponent } from './components/search/search.component';
+import { FormsModule } from '@angular/forms';
+import { FilterPipe } from './components/filter.components';
 
 @NgModule({
   declarations: [
     AppComponent,
     BooksListComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    BookCheckoutComponent,
+    SearchComponent,
+    FilterPipe,
   ],
   entryComponents: [BookCheckoutComponent],
   imports: [
@@ -22,7 +28,8 @@ import { BookCheckoutComponent } from './components/book-checkout/book-checkout.
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

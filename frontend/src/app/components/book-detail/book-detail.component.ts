@@ -5,7 +5,8 @@ import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
-import { BookCheckoutComponent } from '../book-checkout/book-checkout.component';
+
+import { BookCheckoutComponent } from '../book-checkout-dialog/book-checkout.component';
 
 @Component({
   selector: 'app-book-detail',
@@ -23,8 +24,11 @@ export class BookDetailComponent implements OnInit {
   }
 
   openDialog(){
-    this.dialog.open(BookCheckoutComponent);
-     
+    this.dialog.open(BookCheckoutComponent, {
+      data: {
+        book$: this.book$
+      }
+    });
   }
 
   public closeDialog(): void{

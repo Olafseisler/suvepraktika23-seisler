@@ -1,0 +1,9 @@
+<div class="checkout-dialog" *ngIf="(book$ | async) as book">
+    <button mat-raised-button (click)="confirmCheckout(book)">
+        Confirm checkout
+    </button>
+    
+    <button mat-button mat-dialog-close (click)="closeDialog()">
+        Close
+    </button>
+</div>

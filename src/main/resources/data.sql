@@ -1,7 +1,7 @@
 INSERT INTO book (id, title, author, genre, year, added, check_out_count, status, due_date) VALUES
 ('fc80bbda-18f8-4695-af8f-6044dbbe9ce2', 'The Far-Distant Oxus', 'Larry Rath', 'Fanfiction', '1957', '2006-4-16', '3', 'BORROWED', '2023-3-11'),
 ('12f91646-aa62-4f2e-acd4-372d2a5f1e4f', 'By Grand Central Station I Sat Down and Wept', 'Cary Gottlieb', 'Humor', '1951', '2009-10-6', '23', 'AVAILABLE', null),
-('08c563e0-7970-41e0-b4de-40e00a39a88a', 'Edna OBrien', 'Sana Bashirian', 'Speech', '1935', '2007-10-26', '13', 'AVAILABLE', null),
+('08c563e0-7970-41e0-b4de-40e00a39a88a', 'Edna OBrien', 'Sana Bashirian', 'Speech', '1935', '2007-10-26', '13', 'BORROWED', null),
 ('5fce2622-6217-4eed-8d1c-d255bae1c73e', 'The Painted Veil', 'Charles Sanford', 'Historical fiction', '1981', '2013-1-6', '21', 'BORROWED', '2023-4-3'),
 ('79dc9b78-909b-4abb-aa9d-f9d76982cb6a', 'Taming a Sea Horse', 'Evelia Herzog', 'Fairy tale', '1987', '2001-10-14', '9', 'AVAILABLE', null),
 ('dd5d719d-722d-44f8-be56-c895821bde80', 'The Heart Is Deceitful Above All Things', 'German Braun Jr.', 'Horror', '1948', '2001-7-20', '16', 'AVAILABLE', null),
@@ -282,7 +282,7 @@ INSERT INTO book (id, title, author, genre, year, added, check_out_count, status
 ('782c618d-bac4-41cc-973a-f4e4883fd8f8', 'When the Green Woods Laugh', 'Raye Deckow', 'Narrative nonfiction', '1984', '2014-6-5', '8', 'AVAILABLE', null),
 ('79de6b9a-3059-430a-8580-6788348bb468', 'Everything is Illuminated', 'Maurice Morar', 'Western', '1944', '2002-6-6', '29', 'AVAILABLE', null),
 ('38a1e085-af7c-43c6-b435-379ddf936419', 'The Violent Bear It Away', 'Millard Ratke II', 'Fiction in verse', '1904', '2016-4-22', '12', 'BORROWED', '2023-3-23'),
-('da4cffb1-35da-466c-bc22-1294f729a493', 'Taming a Sea Horse', 'Danyell Hermann', 'Science fiction', '1965', '2010-8-18', '9', 'AVAILABLE', null),
+('da4cffb1-35da-466c-bc22-1294f729a493', 'Taming a Sea Horse', 'Danyell Hermann', 'Science fiction', '1965', '2010-8-18', '9', 'BORROWED', null),
 ('065fdc10-a1b5-47c0-80fb-e01c5912cf31', 'A Monstrous Regiment of Women', 'Lenny Gorczany', 'Textbook', '1934', '2001-11-14', '25', 'AVAILABLE', null),
 ('53d0ad4d-a086-4454-92fe-801f1b55baca', 'The World, the Flesh and the Devil', 'Mrs. Edison Lowe', 'Historical fiction', '1947', '2004-7-19', '5', 'BORROWED', '2023-3-18'),
 ('d9db4f1d-98a0-4197-ae29-5e6be5e08ba0', 'Now Sleeps the Crimson Petal', 'Ms. Garth Bosco', 'Suspense/Thriller', '1903', '2015-3-24', '13', 'AVAILABLE', null),
