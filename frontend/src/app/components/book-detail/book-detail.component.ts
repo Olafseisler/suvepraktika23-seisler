@@ -4,6 +4,8 @@ import { Book } from '../../models/book';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
+import { BookCheckoutComponent } from '../book-checkout/book-checkout.component';
 
 @Component({
   selector: 'app-book-detail',
@@ -16,7 +18,17 @@ export class BookDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private bookService: BookService,
+    public dialog: MatDialog,
   ) {
+  }
+
+  openDialog(){
+    this.dialog.open(BookCheckoutComponent);
+     
+  }
+
+  public closeDialog(): void{
+    this.dialog.closeAll();
   }
 
   ngOnInit(): void {

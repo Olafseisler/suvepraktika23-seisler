@@ -4,6 +4,7 @@
     margin-left: auto;
     margin-right: auto;
     text-align: left;
+    margin-bottom: 20px;
 }
 
 .book-data-table th, td{
@@ -15,11 +16,18 @@
 }
 
 .checkout-button {
-    margin-top: 20px;
-    border-radius: 10%;
+    border-radius: 5px;
     box-shadow: inset;
     outline: none;
     background-color: green;
-    flex-direction: row;
+    color: black;
+    font-size: x-large;
+    padding: 5px 5px 5px 5px;
+    position: fixed;
+    left: 45%;
 }
 
+a:link { text-decoration: none; }
+
+
+a:visited { text-decoration: none; }

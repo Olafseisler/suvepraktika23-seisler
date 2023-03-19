@@ -61,8 +61,8 @@
             <td>{{book.comment}}</td>
         </tr>
 
-        <button class="checkout-button" [routerLink]="['/checkout', book.id]">Checkout book</button>
     </table>
+    <a class="checkout-button" mat-raised-button (click)="openDialog()" >Checkout book</a>
   </div> 
 
   <!-- id: string;
