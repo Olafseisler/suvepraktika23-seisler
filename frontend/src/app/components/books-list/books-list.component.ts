@@ -10,6 +10,7 @@ import { MatSort } from '@angular/material/sort';
 import { SearchComponent } from '../search/search.component';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from '../filter.components';
+
 @Component({
   selector: 'app-books-list',
   templateUrl: './books-list.component.html',

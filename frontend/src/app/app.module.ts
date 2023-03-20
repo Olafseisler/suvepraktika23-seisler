@@ -12,6 +12,7 @@ import { BookCheckoutComponent } from './components/book-checkout-dialog/book-ch
 import { SearchComponent } from './components/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './components/filter.components';
+import { AllCheckoutsComponent } from './components/all-checkouts/all-checkouts.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FilterPipe } from './components/filter.components';
     BooksListComponent,
     BookDetailComponent,
     BookCheckoutComponent,
+    AllCheckoutsComponent,
     SearchComponent,
     FilterPipe,
   ],
