@@ -27,12 +27,13 @@ export class BooksListComponent implements OnInit {
   sortDirectionSymbols: Map<string, string> = new Map<string, string>([
     ["title", "-"],
     ["author", "-"],
-    ["year", "-"]]);
+    ["year", "-"]
+  ]);
   
   
   pageRequest: PageRequest = {
     pageIndex: 0,
-    pageSize: 10,
+    pageSize: 1000,
     sort: undefined,
     direction: undefined
   }
@@ -49,13 +50,13 @@ export class BooksListComponent implements OnInit {
     console.log('Loading');
     this.updateData();
     this.setSortDirectionSymbols();
-
   }
 
   updateData(){
     this.bookService.getBooks(this.pageRequest).subscribe((response:any) =>
     {
       this.dataSource = new MatTableDataSource(response.content);
+      this.dataSource.paginator = this.paginator;
     });
   }
 
@@ -72,16 +73,11 @@ export class BooksListComponent implements OnInit {
         break;
     }
 
-    console.log("sort category in sym: " + this.sortCategory);
-
     this.sortDirectionSymbols.forEach((value, key) => {
       if(key !== this.sortCategory){
         this.sortDirectionSymbols.set(key, "-");
       }
     });
-
-    // console.log(this.sortDirectionSymbols);
-
   }
 
   flipSortDirection(){
@@ -96,26 +92,25 @@ export class BooksListComponent implements OnInit {
         this.sortDirection = '';
         break;
     }
-    // console.log("sort direction: " + this.sortDirection);
   }
 
   onSortButtonClick(sortCategory: string){
-    // console.log("sort category: " + sortCategory);
     this.sortCategory = sortCategory;
     this.flipSortDirection();
     this.setSortDirectionSymbols();
     this.pageRequest = {
       pageIndex: 0,
-      pageSize: 10,
+      pageSize: 20,
       sort: this.sortDirection === '' ? undefined : sortCategory,
       direction: this.sortDirection === '' ? undefined : this.sortDirection
     }
     this.updateData();
   }
 
-  onSearchTextEntered(searchValue: any): void{
-    console.log(searchValue);
-    this.searchText = searchValue;
+  filterData($event: any): void{
+    // apply filter with custom filter predicate
+    this.dataSource.filter = $event.target.value.trim().toLowerCase();
   }
-
+  
+  
 }
