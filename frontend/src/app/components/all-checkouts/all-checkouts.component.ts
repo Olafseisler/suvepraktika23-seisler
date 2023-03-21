@@ -8,6 +8,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { CommonModule } from '@angular/common';
 import { MatSort } from '@angular/material/sort';
 
+
 @Component({
     selector: 'app-all-checkouts',
     templateUrl: './all-checkouts.component.html',
@@ -15,7 +16,7 @@ import { MatSort } from '@angular/material/sort';
 })
 export class AllCheckoutsComponent implements OnInit {
   
-    books$!: Observable<Page<Book>>;
+    checkouts$!: Observable<Page<Book>>;
     displayedColumns: string[] = ['Title', "Author", "Year"];
     @ViewChild(MatSort, {static: true}) sort: MatSort;
     // @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -28,7 +29,7 @@ export class AllCheckoutsComponent implements OnInit {
   
     ngOnInit(): void {
       // TODO this observable should emit books taking into consideration pagination, sorting and filtering options.
-      this.books$ = this.bookService.getBooks({});
+      this.checkouts$ = this.bookService.getCheckouts({});
     }
   
 }  

@@ -41,4 +41,10 @@ export class BookService {
     return this.http.delete<void>(url, {params});
   }
 
+  getCheckouts(filter: Partial<PageRequest>): Observable<Page<Book>> {
+    const url = this.baseUrl + '/getCheckouts';
+    const params = RestUtil.buildParamsFromPageRequest(filter);
+    return this.http.get<Page<Book>>(url, {params});
+  }
+
 }
