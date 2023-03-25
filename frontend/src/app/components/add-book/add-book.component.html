@@ -1,0 +1,21 @@
+<div class="add-books">
+    <h1>Add a new book</h1>
+    <form #submitBook="ngForm" class="form-controller" [formGroup]="addBookForm" (ngSubmit)="onSubmit(submitBook)">
+        <mat-form-field>
+        <input #title matInput required placeholder="Title" formControlName="title">
+        </mat-form-field>
+        <mat-form-field>
+        <input matInput maxlength="40" placeholder="Author" formControlName="author">
+        </mat-form-field>
+        <mat-form-field>
+        <input matInput maxlength="20" placeholder="Genre" formControlName="genre">
+        </mat-form-field>
+        <mat-form-field>
+        <input #year matInput maxlength="40" placeholder="Year" formControlName="year">
+        </mat-form-field>
+        <mat-form-field>
+        <input matInput maxlength="200" placeholder="Comment" formControlName="comment">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="addBookForm.invalid">Add book</button>
+    </form>
+</div>

@@ -10,9 +10,10 @@ import { BookDetailComponent } from './components/book-detail/book-detail.compon
 import { HttpClientModule } from '@angular/common/http';
 import { BookCheckoutComponent } from './components/book-checkout-dialog/book-checkout.component';
 import { SearchComponent } from './components/search/search.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './components/filter.components';
 import { AllCheckoutsComponent } from './components/all-checkouts/all-checkouts.component';
+import { AddBookComponent } from './components/add-book/add-book.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AllCheckoutsComponent } from './components/all-checkouts/all-checkouts.
     BookCheckoutComponent,
     AllCheckoutsComponent,
     SearchComponent,
+    AddBookComponent,
     FilterPipe,
   ],
   entryComponents: [BookCheckoutComponent],
@@ -32,6 +34,7 @@ import { AllCheckoutsComponent } from './components/all-checkouts/all-checkouts.
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
