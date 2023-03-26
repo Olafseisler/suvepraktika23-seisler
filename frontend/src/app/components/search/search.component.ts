@@ -20,7 +20,6 @@ export class SearchComponent implements OnInit{
         
     }
 
-
     onSearchTextChanged(): void {
         // console.log(this.searchTextValue);
         this.searchTextValueChanged.emit(this.searchTextValue);

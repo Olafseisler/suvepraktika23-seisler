@@ -18,13 +18,12 @@
         <span>Filter by status: </span>
         <mat-form-field appearance="fill">
           <select [(ngModel)]="statusFilter"  matNativeControl required (change)="onStatusFilterChange()">
-            <option mat-option value="undefined">ALL</option>
-            <option mat-option value="AVAILABLE">AVAILABLE</option>
-            <option mat-option value="BORROWED">BORROWED</option>
-            <option mat-option value="DAMAGED">DAMAGED</option>
+            <!-- <option value="null">All</option> -->
+            <option *ngFor="let status of statusFilterOptions" value="{{status.id}}">
+                {{status.name === "" ? "ALL" : status.name}}
+            </option>
           </select>
         </mat-form-field>
-        
       </span>
 
       <table mat-table #table [dataSource]="dataSource"  class="books-table">

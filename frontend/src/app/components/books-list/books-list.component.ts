@@ -12,6 +12,11 @@ import { SortDirection } from '@angular/material/sort';
 import { MatButton } from '@angular/material/button';
 import { BookStatus } from 'src/app/models/book-status';
 
+export interface StatusMapObject {
+  id: number,
+  name: string;
+}
+
 @Component({
   selector: 'app-books-list',
   templateUrl: './books-list.component.html',
@@ -24,14 +29,22 @@ export class BooksListComponent implements OnInit {
   searchText: string = "";
   sortCategory: string = "title";
   sortDirection: SortDirection = '';
-  statusFilter!: BookStatus;
   sortDirectionSymbols: Map<string, string> = new Map<string, string>([
     ["title", "-"],
     ["author", "-"],
     ["year", "-"]
   ]);
-  
-  
+
+  statusFilterOptions: Array<StatusMapObject> = [
+    {id: 0, name: ""},
+    {id: 1, name: "AVAILABLE"},
+    {id: 2, name: "BORROWED"},
+    {id: 3, name: "RETURNED"},
+    {id: 4, name: "DAMAGED"},
+    {id: 5, name: "PROCESSING"}];
+
+  statusFilter: number = 0;
+
   pageRequest: PageRequest = {
     pageIndex: 0,
     pageSize: 1000,
@@ -45,6 +58,7 @@ export class BooksListComponent implements OnInit {
   constructor(
     private bookService: BookService,
   ) {
+
   }
 
   ngOnInit(): void {
@@ -119,15 +133,10 @@ export class BooksListComponent implements OnInit {
   
   onStatusFilterChange(): void{
     console.log("Status Filter Changed to: " + this.statusFilter);
-    this.sortDirection = '';
-    this.pageRequest = {
-      pageIndex: 0,
-      pageSize: 20,
-      sort: this.statusFilter.toString(),
-      direction: this.sortDirection
-    }
-    console.log("pagerequest: " + this.pageRequest.sort)
-    this.updateData();
+    // implement filter by status
+    this.dataSource.filter = this.statusFilterOptions[this.statusFilter].name;
+    console.log(this.dataSource.filter);
+
   }
   
 }
