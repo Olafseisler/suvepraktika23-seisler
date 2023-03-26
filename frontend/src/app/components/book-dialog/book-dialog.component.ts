@@ -21,6 +21,7 @@ export type ActionMode = 'checkout' | 'delete';
 export class BookDialogComponent implements OnInit {
   book$: Observable<Book>;
   actionMode: ActionMode = 'checkout';
+  responseObject!: Observable<any>;
 
   constructor(
     private route: ActivatedRoute,
@@ -38,12 +39,8 @@ export class BookDialogComponent implements OnInit {
 
   confirmCheckout(bookRef: Book): void {
     console.log('Confirming Checkout');
-  
-    if (bookRef.status == 'BORROWED'){
-      console.log('Book already borrowed!');
-      return;
-    }
-
+    console.log(bookRef);
+    
     this.bookService.saveBook({
       id: bookRef.id,
       title: bookRef.title,
@@ -55,14 +52,16 @@ export class BookDialogComponent implements OnInit {
       status: 'BORROWED',
       dueDate: bookRef.dueDate,
       comment: bookRef.comment,
-    });
+    }).subscribe(() => {});
     console.log('Checkout Completed');
 
   }
 
   confirmDelete(bookRef: Book): void {
     console.log('Confirming Delete');
-    this.bookService.deleteBook(bookRef.id)
+    console.log(bookRef);
+    this.bookService.deleteBook(bookRef.id).subscribe(() => {});
+
     // TODO: Route back to all books page
 
     console.log('Delete Completed');
@@ -74,6 +73,7 @@ export class BookDialogComponent implements OnInit {
     } else if (this.actionMode == 'delete'){
       this.confirmDelete(bookRef);
     }
+    this.dialogRef.close();
   }
 
   closeDialog(): void{

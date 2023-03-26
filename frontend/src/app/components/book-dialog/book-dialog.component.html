@@ -1,5 +1,5 @@
-<div class="checkout-dialog" *ngIf="(book$ | async) as book">
-    <button mat-raised-button (click)="handleAction(book)">
+<div class="book-dialog" *ngIf="(book$ | async) as book">
+    <button mat-raised-button (click)="handleAction(book)" routerLink="/books">
         Confirm {{actionMode}}
     </button>
     

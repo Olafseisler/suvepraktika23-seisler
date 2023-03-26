@@ -1,6 +1,11 @@
-.book-dialog{
+.problem-dialog{
     min-width: 300;
     min-height: 200;
     flex-direction: column;
     padding: 30px 30px 30px 30px;
+}
+
+button {
+    display: flex;
+    margin: auto;
 }

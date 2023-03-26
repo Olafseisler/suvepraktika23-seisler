@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './components/filter.components';
 import { AllCheckoutsComponent } from './components/all-checkouts/all-checkouts.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
+import { ProblemPopup } from './components/problem-popup/problem-popup.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,10 @@ import { AddBookComponent } from './components/add-book/add-book.component';
     AddBookComponent,
     FilterPipe,
   ],
-  entryComponents: [BookDialogComponent],
+  entryComponents: [
+    BookDialogComponent,
+    ProblemPopup,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,

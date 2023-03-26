@@ -59,11 +59,11 @@
         </tr>
         
     </table>
-
+    <span class="book-actions" #bookActions>
+        <a class="checkout-button" mat-raised-button (click)="openConfirmDialog(book, 'checkout')" >Checkout book</a>
+        <a class="delete-button" mat-raised-button (click)="openConfirmDialog(book, 'delete')" >Delete book</a>    
+    </span>
   </div> 
 
 
-  <span class="book-actions" #bookActions>
-    <a class="checkout-button" mat-raised-button (click)="openDialog('checkout')" >Checkout book</a>
-    <a class="delete-button" mat-raised-button (click)="openDialog('delete')" >Delete book</a>    
-</span>
+ 
