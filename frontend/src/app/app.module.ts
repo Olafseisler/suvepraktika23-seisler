@@ -8,7 +8,7 @@ import { MaterialModule } from './material/material.module';
 import { BooksListComponent } from './components/books-list/books-list.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { HttpClientModule } from '@angular/common/http';
-import { BookCheckoutComponent } from './components/book-checkout-dialog/book-checkout.component';
+import { BookDialogComponent } from './components/book-dialog/book-dialog.component';
 import { SearchComponent } from './components/search/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './components/filter.components';
@@ -20,13 +20,13 @@ import { AddBookComponent } from './components/add-book/add-book.component';
     AppComponent,
     BooksListComponent,
     BookDetailComponent,
-    BookCheckoutComponent,
+    BookDialogComponent,
     AllCheckoutsComponent,
     SearchComponent,
     AddBookComponent,
     FilterPipe,
   ],
-  entryComponents: [BookCheckoutComponent],
+  entryComponents: [BookDialogComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

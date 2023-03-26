@@ -8,9 +8,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from '../search/search.component';
 import { FormsModule } from '@angular/forms';
-import { FilterPipe } from '../filter.components';
 import { SortDirection } from '@angular/material/sort';
 import { MatButton } from '@angular/material/button';
+import { BookStatus } from 'src/app/models/book-status';
 
 @Component({
   selector: 'app-books-list',
@@ -24,6 +24,7 @@ export class BooksListComponent implements OnInit {
   searchText: string = "";
   sortCategory: string = "title";
   sortDirection: SortDirection = '';
+  statusFilter!: BookStatus;
   sortDirectionSymbols: Map<string, string> = new Map<string, string>([
     ["title", "-"],
     ["author", "-"],
@@ -94,16 +95,20 @@ export class BooksListComponent implements OnInit {
     }
   }
 
+  constructPageRequest(): void{
+    this.pageRequest = {
+      pageIndex: 0,
+      pageSize: 20,
+      sort: this.sortDirection === '' ? undefined : this.sortCategory,
+      direction: this.sortDirection === '' ? undefined : this.sortDirection
+    }
+  }
+
   onSortButtonClick(sortCategory: string){
     this.sortCategory = sortCategory;
     this.flipSortDirection();
     this.setSortDirectionSymbols();
-    this.pageRequest = {
-      pageIndex: 0,
-      pageSize: 20,
-      sort: this.sortDirection === '' ? undefined : sortCategory,
-      direction: this.sortDirection === '' ? undefined : this.sortDirection
-    }
+    this.constructPageRequest();
     this.updateData();
   }
 
@@ -112,5 +117,17 @@ export class BooksListComponent implements OnInit {
     this.dataSource.filter = $event.target.value.trim().toLowerCase();
   }
   
+  onStatusFilterChange(): void{
+    console.log("Status Filter Changed to: " + this.statusFilter);
+    this.sortDirection = '';
+    this.pageRequest = {
+      pageIndex: 0,
+      pageSize: 20,
+      sort: this.statusFilter.toString(),
+      direction: this.sortDirection
+    }
+    console.log("pagerequest: " + this.pageRequest.sort)
+    this.updateData();
+  }
   
 }

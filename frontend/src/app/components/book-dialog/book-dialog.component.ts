@@ -8,23 +8,28 @@ import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
 import { BookDetailComponent } from '../book-detail/book-detail.component';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Action } from 'rxjs/internal/scheduler/Action';
+
+export type ActionMode = 'checkout' | 'delete';
 
 @Component({
-    selector: 'app-books-checkout',
-    templateUrl: './book-checkout.component.html',
-    styleUrls: ['./book-checkout.component.scss']
+    selector: 'app-book-dialog',
+    templateUrl: './book-dialog.component.html',
+    styleUrls: ['./book-dialog.component.scss']
   })
 
-export class BookCheckoutComponent implements OnInit {
+export class BookDialogComponent implements OnInit {
   book$: Observable<Book>;
+  actionMode: ActionMode = 'checkout';
 
   constructor(
     private route: ActivatedRoute,
     private bookService: BookService,
-    private dialogRef: MatDialogRef<BookCheckoutComponent>,
+    private dialogRef: MatDialogRef<BookDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
     this.book$ = data.book$;
+    this.actionMode = data.actionMode;
   }
 
   ngOnInit(): void {  }
@@ -53,6 +58,22 @@ export class BookCheckoutComponent implements OnInit {
     });
     console.log('Checkout Completed');
 
+  }
+
+  confirmDelete(bookRef: Book): void {
+    console.log('Confirming Delete');
+    this.bookService.deleteBook(bookRef.id)
+    // TODO: Route back to all books page
+
+    console.log('Delete Completed');
+  }
+
+  handleAction(bookRef: Book): void {
+    if (this.actionMode == 'checkout'){
+      this.confirmCheckout(bookRef);
+    } else if (this.actionMode == 'delete'){
+      this.confirmDelete(bookRef);
+    }
   }
 
   closeDialog(): void{

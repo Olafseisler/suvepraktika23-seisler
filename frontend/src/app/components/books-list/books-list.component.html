@@ -14,6 +14,19 @@
         <input matInput (keyup)="filterData($event)" autocomplete="off">
       </mat-form-field>
 
+      <span class="status-filter">
+        <span>Filter by status: </span>
+        <mat-form-field appearance="fill">
+          <select [(ngModel)]="statusFilter"  matNativeControl required (change)="onStatusFilterChange()">
+            <option mat-option value="undefined">ALL</option>
+            <option mat-option value="AVAILABLE">AVAILABLE</option>
+            <option mat-option value="BORROWED">BORROWED</option>
+            <option mat-option value="DAMAGED">DAMAGED</option>
+          </select>
+        </mat-form-field>
+        
+      </span>
+
       <table mat-table #table [dataSource]="dataSource"  class="books-table">
         <ng-container matColumnDef="Title">
           <th mat-header-cell *matHeaderCellDef >

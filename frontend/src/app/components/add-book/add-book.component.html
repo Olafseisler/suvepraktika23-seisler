@@ -1,5 +1,5 @@
 <div class="add-books">
-    <h1>Add a new book</h1>
+    <h1 class="title-text">Add a new book</h1>
     <form #submitBook="ngForm" class="form-controller" [formGroup]="addBookForm" (ngSubmit)="onSubmit(submitBook)">
         <mat-form-field>
         <input #title matInput required placeholder="Title" formControlName="title">

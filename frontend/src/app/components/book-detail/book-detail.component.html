@@ -57,18 +57,13 @@
             <td>Comment</td>
             <td>{{book.comment}}</td>
         </tr>
-
+        
     </table>
-    <a class="checkout-button" mat-raised-button (click)="openDialog()" >Checkout book</a>
+
   </div> 
 
-  <!-- id: string;
-    title: string;
-    author: string;
-    genre: string;
-    year: number;
-    added: string;
-    checkOutCount: number;
-    status: BookStatus;
-    dueDate: string;
-    comment: string; -->
+
+  <span class="book-actions" #bookActions>
+    <a class="checkout-button" mat-raised-button (click)="openDialog('checkout')" >Checkout book</a>
+    <a class="delete-button" mat-raised-button (click)="openDialog('delete')" >Delete book</a>    
+</span>

@@ -15,16 +15,34 @@
     border-bottom: 1px solid darkgray;
 }
 
+.book-actions{
+    text-align: center;
+    display: block;
+    padding: 5px 5px 5px 5px;
+    // left: 50%;
+    
+}
+
 .checkout-button {
     border-radius: 5px;
     box-shadow: inset;
     outline: none;
     background-color: green;
     color: black;
-    font-size: x-large;
-    padding: 5px 5px 5px 5px;
-    position: fixed;
-    left: 45%;
+    font-size: large;
+}
+
+.delete-button{
+    border-radius: 5px;
+    box-shadow: inset;
+    outline: none;
+    background-color: red;
+    color: black;
+    font-size: large;
+}
+
+a{
+    margin: 5px 10px 5px 0px;
 }
 
 a:link { text-decoration: none; }
