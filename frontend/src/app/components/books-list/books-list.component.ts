@@ -82,7 +82,7 @@ export class BooksListComponent implements OnInit {
         break;
       case 'asc': 
         this.sortDirectionSymbols.set(this.sortCategory, "↑");  
-        break;    
+        break;
       case 'desc':
         this.sortDirectionSymbols.set(this.sortCategory, "↓");
         break;
