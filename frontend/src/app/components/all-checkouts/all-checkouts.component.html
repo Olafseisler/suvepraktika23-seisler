@@ -3,11 +3,11 @@
       <mat-card-title class="page-title">Checkouts</mat-card-title>
       <mat-card-content>
   
-        <table mat-table *ngIf="(checkouts$|async) as checkouts" [dataSource]="checkouts.content" matSort class="books-table">
+        <table mat-table *ngIf="(checkouts$|async) as checkouts" [dataSource]="checkouts.content" matSort class="checkouts-table">
           <ng-container matColumnDef="Title">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Book</th>
             <td mat-cell *matCellDef="let element">
-              <a mat-list-item [routerLink]="['/books', element.id]">
+              <a mat-list-item [routerLink]="['/checkouts', element.id]">
                 {{element.borrowedBook.title}}
               </a>
             </td>

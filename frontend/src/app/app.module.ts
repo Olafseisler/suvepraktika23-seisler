@@ -15,6 +15,7 @@ import { FilterPipe } from './components/filter.components';
 import { AllCheckoutsComponent } from './components/all-checkouts/all-checkouts.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { ProblemPopup } from './components/problem-popup/problem-popup.component';
+import { CheckoutDetailComponent } from './components/checkout-detail/checkout-detail.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ProblemPopup } from './components/problem-popup/problem-popup.component
     AllCheckoutsComponent,
     SearchComponent,
     AddBookComponent,
+    CheckoutDetailComponent,
     FilterPipe,
   ],
   entryComponents: [

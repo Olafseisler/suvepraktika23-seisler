@@ -1,12 +1,14 @@
 import { Component, NgModule, OnInit, ViewChild } from '@angular/core';
 import { CheckoutService } from '../../services/checkout.service';
 import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 import { Page, PageRequest } from '../../models/page';
 import { Book } from '../../models/book';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { CommonModule } from '@angular/common';
 import { MatSort } from '@angular/material/sort';
+import { Checkout } from 'src/app/models/checkout';
 
 
 @Component({
@@ -16,7 +18,7 @@ import { MatSort } from '@angular/material/sort';
 })
 export class AllCheckoutsComponent implements OnInit {
   
-    checkouts$!: Observable<Page<Book>>;
+    checkouts$!: Observable<Page<Checkout>>;
     displayedColumns: string[] = ['Title', "Checked out", "Due", "Returned"];
     @ViewChild(MatSort, {static: true}) sort: MatSort;
     // @ViewChild(MatPaginator) paginator: MatPaginator;

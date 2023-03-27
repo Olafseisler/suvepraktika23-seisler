@@ -1,0 +1,33 @@
+<div class="checkout-detail-element" *ngIf="(checkout$ | async) as checkout">
+    <table class="checkout-table">
+        <h1>Checkout info</h1>
+        <tr>
+            <td>ID</td>
+            <td>{{checkout.id}}</td>
+        </tr>
+        <tr>
+            <td>Book</td>
+            <td>{{checkout.borrowedBook.title}}</td>
+        </tr>
+        <tr>
+            <td>Checked out</td>
+            <td>{{checkout.checkedOutDate}}</td>
+        </tr>
+        <tr>
+            <td>Due</td>
+            <td>{{checkout.dueDate}}</td>
+        </tr>
+        <tr>
+            <td>Returned</td>
+            <td>{{checkout.returnedDate}}</td>
+        </tr>
+        <tr>
+            <td>Borrower</td>
+            <td>{{checkout.borrowerFirstName + " " + checkout.borrowerLastName}}</td>
+        </tr>
+    </table>
+    <span class="checkout-actions" #bookActions>
+        <a class="return-button" mat-raised-button routerLink="/checkouts" (click)="returnBook(checkout)">Return book</a>
+    </span>
+
+</div>

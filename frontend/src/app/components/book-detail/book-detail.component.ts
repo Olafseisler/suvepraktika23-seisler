@@ -35,12 +35,12 @@ export class BookDetailComponent implements OnInit {
     }
 
     if (bookRef.status == 'DAMAGED' && action == 'checkout'){
-      console.warn('Damaged book cannot be checked out!');
+      this.openProblemDialog('Damaged book cannot be checked out!');
       return;
     }
 
     if (bookRef.status == 'PROCESSING'){
-      console.warn('Unable to proceed. Book is currently being processed!');
+      this.openProblemDialog('Unable to proceed. Book is currently being processed!');
       return;
     }
 

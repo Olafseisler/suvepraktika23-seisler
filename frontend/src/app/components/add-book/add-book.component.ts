@@ -38,10 +38,9 @@ export class AddBookComponent implements OnInit{
         // Define current date
         var today = new Date();
         // Generate id in range (3000, 9999)
-        var currentID = Math.floor(Math.random() * (9999 - 3000 + 1) + 3000);
     
         this.bookService.saveBook({
-            id: currentID.toString(),
+            id: "",
             title: formInfo.title,
             author: formInfo.author,
             genre: formInfo.genre,
