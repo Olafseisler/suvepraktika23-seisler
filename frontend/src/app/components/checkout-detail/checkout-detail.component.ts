@@ -44,7 +44,7 @@ export class CheckoutDetailComponent implements OnInit {
     
     returnBook(checkoutRef: Checkout): void {
         console.log("Returning Book");
-        if (checkoutRef.returnedDate != null) {
+        if (checkoutRef.borrowedBook.status != "BORROWED") {
             this.openProblemDialog('Book has already been returned!');
             return;
         }
