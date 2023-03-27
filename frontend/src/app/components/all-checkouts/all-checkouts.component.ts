@@ -19,7 +19,7 @@ import { MatButton } from '@angular/material/button';
 export class AllCheckoutsComponent implements OnInit {
   
     checkouts$!: Observable<Page<Checkout>>;
-    displayedColumns: string[] = ["Book", "Checked out", "Due", "Returned"];
+    displayedColumns: string[] = ["Book", "Checked out", "Due", "Returned", "LateIcon"];
     dataSource!: MatTableDataSource<any>;
     @ViewChild(MatPaginator) paginator!: MatPaginator;
     searchText: string = "";
@@ -47,6 +47,7 @@ export class AllCheckoutsComponent implements OnInit {
       console.log('Loading');
       this.updateData();
       this.setSortDirectionSymbols();
+      
     }
 
     updateData(){
@@ -113,5 +114,9 @@ export class AllCheckoutsComponent implements OnInit {
     filterData($event: any): void{
       // apply filter with custom filter predicate
       this.dataSource.filter = $event.target.value.trim().toLowerCase();
+    }
+
+    earlierThanToday(dateString: string): boolean{
+      return new Date(dateString) < new Date();
     }
 }  

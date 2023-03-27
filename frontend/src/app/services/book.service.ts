@@ -31,6 +31,7 @@ export class BookService {
   }
 
   saveBook(book: Book): Observable<void> {
+    console.log("Saving book: " + JSON.stringify(book))
     const url = this.baseUrl + '/saveBook';
     return this.http.post<void>(url, book);
   }
@@ -39,12 +40,6 @@ export class BookService {
     const url = this.baseUrl + '/deleteBook';
     const params = new HttpParams().set('bookId', bookId);
     return this.http.delete<void>(url, {params});
-  }
-
-  getCheckouts(filter: Partial<PageRequest>): Observable<Page<Book>> {
-    const url = this.baseUrl + '/getCheckouts';
-    const params = RestUtil.buildParamsFromPageRequest(filter);
-    return this.http.get<Page<Book>>(url, {params});
   }
 
 }

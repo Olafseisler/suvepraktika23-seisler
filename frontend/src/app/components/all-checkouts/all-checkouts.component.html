@@ -2,6 +2,7 @@
     <mat-card>
       <mat-card-title class="page-title">Checkouts</mat-card-title>
       <mat-card-content>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <mat-form-field>
           <input matInput (keyup)="filterData($event)" autocomplete="off">
@@ -53,6 +54,18 @@
               <a mat-list-item [routerLink]="['/checkouts', element.id]">
                 {{ element.returnedDate }}
               </a>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="LateIcon">
+            <th mat-header-cell *matHeaderCellDef >
+              LateIcon
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <mat-icon>
+                {{ (element.returnedDate == undefined && earlierThanToday(element.dueDate)) ? 'notification_important' : '' }}
+                <!-- notification_important -->
+              </mat-icon>
             </td>
           </ng-container>
   
