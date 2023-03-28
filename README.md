@@ -1,4 +1,4 @@
-<h2>CGI Summer Internship</h2>
+<h2>CGI Summer Internship Trial Task</h2>
 
 This is my take at implementing the required tasks for the summer internship application assingment.
 
