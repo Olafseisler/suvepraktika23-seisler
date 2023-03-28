@@ -47,7 +47,7 @@ export class BooksListComponent implements OnInit {
 
   pageRequest: PageRequest = {
     pageIndex: 0,
-    pageSize: 1000,
+    pageSize: 1500,
     sort: undefined,
     direction: undefined
   }

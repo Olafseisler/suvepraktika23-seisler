@@ -2,7 +2,7 @@ import { Component, NgModule, OnInit } from '@angular/core';
 import { BookService } from '../../services/book.service';
 import { Book } from '../../models/book';
 import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { FormsModule, NgModel } from '@angular/forms';
@@ -19,7 +19,8 @@ export class AddBookComponent implements OnInit{
     addBookForm!: FormGroup;
 
     constructor(private forms: FormBuilder, 
-                private bookService: BookService) {}
+                private bookService: BookService,
+                private router: Router) {}
 
     ngOnInit(): void {
         this.addBookForm = this.forms.group({
@@ -29,15 +30,6 @@ export class AddBookComponent implements OnInit{
             year: ['', [Validators.minLength(4),
                         Validators.max(2023)]],
             comment : new FormControl(''),
-        });
-    }
-
-    // Generate UUID 
-    // https://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
-    uuidv4() : string {
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-            return v.toString(16);
         });
     }
 
@@ -51,11 +43,8 @@ export class AddBookComponent implements OnInit{
         let dueDate: Date = new Date();
         dueDate.setDate(dueDate.getDate() + 10);
         let dueDateString: string = dueDate.toISOString().slice(0,10);
-
-        console.log("Generated UUID: ", crypto.randomUUID());
-
         this.bookService.saveBook({
-            id: this.uuidv4(),
+            id: crypto.randomUUID(),
             title: formInfo.form.value.title,
             author: formInfo.form.value.author,
             genre: formInfo.form.value.genre,
@@ -66,6 +55,7 @@ export class AddBookComponent implements OnInit{
             dueDate: dueDateString,
             comment: formInfo.form.value.comment,
           }).subscribe(() => {});
+        this.router.navigate(['/books']);
     }
 
     get title() { return this.addBookForm.get('title'); }

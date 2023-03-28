@@ -62,7 +62,7 @@
               LateIcon
             </th>
             <td mat-cell *matCellDef="let element">
-              <mat-icon>
+              <mat-icon color="warn">
                 {{ (element.returnedDate == undefined && earlierThanToday(element.dueDate)) ? 'notification_important' : '' }}
                 <!-- notification_important -->
               </mat-icon>

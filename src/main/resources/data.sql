@@ -1,7 +1,7 @@
 INSERT INTO book (id, title, author, genre, year, added, check_out_count, status, due_date) VALUES
 ('fc80bbda-18f8-4695-af8f-6044dbbe9ce2', 'The Far-Distant Oxus', 'Larry Rath', 'Fanfiction', '1957', '2006-4-16', '3', 'BORROWED', '2023-3-11'),
 ('12f91646-aa62-4f2e-acd4-372d2a5f1e4f', 'By Grand Central Station I Sat Down and Wept', 'Cary Gottlieb', 'Humor', '1951', '2009-10-6', '23', 'AVAILABLE', null),
-('08c563e0-7970-41e0-b4de-40e00a39a88a', 'Edna OBrien', 'Sana Bashirian', 'Speech', '1935', '2007-10-26', '13', 'BORROWED', null),
+('08c563e0-7970-41e0-b4de-40e00a39a88a', 'Edna OBrien', 'Sana Bashirian', 'Speech', '1935', '2007-10-26', '13', 'AVAILABLE', null),
 ('5fce2622-6217-4eed-8d1c-d255bae1c73e', 'The Painted Veil', 'Charles Sanford', 'Historical fiction', '1981', '2013-1-6', '21', 'BORROWED', '2023-4-3'),
 ('79dc9b78-909b-4abb-aa9d-f9d76982cb6a', 'Taming a Sea Horse', 'Evelia Herzog', 'Fairy tale', '1987', '2001-10-14', '9', 'AVAILABLE', null),
 ('dd5d719d-722d-44f8-be56-c895821bde80', 'The Heart Is Deceitful Above All Things', 'German Braun Jr.', 'Horror', '1948', '2001-7-20', '16', 'AVAILABLE', null),

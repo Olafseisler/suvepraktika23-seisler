@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Page, PageRequest } from '../models/page';
 import { Book } from '../models/book';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { RestUtil } from './rest-util';
 
@@ -31,9 +31,10 @@ export class BookService {
   }
 
   saveBook(book: Book): Observable<void> {
-    console.log("Saving book: " + JSON.stringify(book))
     const url = this.baseUrl + '/saveBook';
-    return this.http.post<void>(url, book);
+    return this.http.post<string>(url, book).pipe(
+      map((response: string) => JSON.parse(response)) // parse the JSON response
+    );
   }
 
   deleteBook(bookId: string): Observable<void> {
