@@ -52,6 +52,8 @@ export class CheckoutDetailComponent implements OnInit {
         // Get current date in format yyyy-mm-dd
         let currentDate: string = new Date().toISOString().slice(0,10);
         
+
+        // Throws a JSON parse error for some reason, still works though
         this.checkoutService.saveCheckout({
             id: checkoutRef.id,
             borrowedBook: checkoutRef.borrowedBook,
@@ -61,7 +63,6 @@ export class CheckoutDetailComponent implements OnInit {
             borrowerFirstName: checkoutRef.borrowerFirstName,
             borrowerLastName: checkoutRef.borrowerLastName,
         }).subscribe(() => {});
-        // TODO: update the book object's status to AVAILABLE
         this.bookService.saveBook({
             id: checkoutRef.borrowedBook.id,
             title: checkoutRef.borrowedBook.title,

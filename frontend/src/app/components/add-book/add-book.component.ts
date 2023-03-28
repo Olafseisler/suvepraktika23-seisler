@@ -33,16 +33,18 @@ export class AddBookComponent implements OnInit{
         });
     }
 
+    redirectTo(uri:string){
+        this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+        this.router.navigate([uri]));
+     }
+
     onSubmit(formInfo: any): void {
         console.log("Form Submitted", formInfo.form.value);
         // Define current date
         var today = new Date();
         // Generate id in range (3000, 9999)
         let currentDateString: string = today.toISOString().slice(0,10);
-        //define due date 10 days from today in format yyyy-mm-dd
-        let dueDate: Date = new Date();
-        dueDate.setDate(dueDate.getDate() + 10);
-        let dueDateString: string = dueDate.toISOString().slice(0,10);
+
         this.bookService.saveBook({
             id: crypto.randomUUID(),
             title: formInfo.form.value.title,
@@ -52,10 +54,12 @@ export class AddBookComponent implements OnInit{
             added: currentDateString,
             checkOutCount: 0,
             status: 'AVAILABLE',
-            dueDate: dueDateString,
+            dueDate: "",
             comment: formInfo.form.value.comment,
           }).subscribe(() => {});
-        this.router.navigate(['/books']);
+
+        // this.router.navigate(['/books']);
+        this.redirectTo('/books');
     }
 
     get title() { return this.addBookForm.get('title'); }

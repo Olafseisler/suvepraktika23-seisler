@@ -2,14 +2,6 @@
   <mat-card>
     <mat-card-title class="page-title">Books</mat-card-title>
     <mat-card-content>
-      <!-- <mat-nav-list *ngIf="(books$ | async) as books" >
-        <a mat-list-item *ngFor="let book of books.content" [routerLink]="['/books', book.id]">
-          {{book.title}}
-        </a>
-        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-      </mat-nav-list> -->
-
-      <!-- <app-search (searchTextValueChanged)="onSearchTextEntered($event)"></app-search> -->
       <mat-form-field>
         <input matInput (keyup)="filterData($event)" autocomplete="off">
       </mat-form-field>

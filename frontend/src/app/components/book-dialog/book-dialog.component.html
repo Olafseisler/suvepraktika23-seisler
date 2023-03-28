@@ -1,5 +1,5 @@
 <div class="book-dialog" *ngIf="(book$ | async) as book">
-    <button mat-raised-button (click)="handleAction(book)" routerLink="/books">
+    <button mat-raised-button (click)="handleAction(book)">
         Confirm {{actionMode}}
     </button>
     

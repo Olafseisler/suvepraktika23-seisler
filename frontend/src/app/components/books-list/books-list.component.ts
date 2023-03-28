@@ -6,7 +6,6 @@ import { Book } from '../../models/book';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { CommonModule } from '@angular/common';
-import { SearchComponent } from '../search/search.component';
 import { FormsModule } from '@angular/forms';
 import { SortDirection } from '@angular/material/sort';
 import { MatButton } from '@angular/material/button';
@@ -47,7 +46,7 @@ export class BooksListComponent implements OnInit {
 
   pageRequest: PageRequest = {
     pageIndex: 0,
-    pageSize: 1500,
+    pageSize: 2000,
     sort: undefined,
     direction: undefined
   }

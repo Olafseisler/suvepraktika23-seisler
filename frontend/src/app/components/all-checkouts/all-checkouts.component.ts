@@ -33,7 +33,7 @@ export class AllCheckoutsComponent implements OnInit {
     ]);
     pageRequest: PageRequest = {
       pageIndex: 0,
-      pageSize: 1000,
+      pageSize: 2000,
       sort: undefined,
       direction: undefined
     }
@@ -47,7 +47,6 @@ export class AllCheckoutsComponent implements OnInit {
       console.log('Loading');
       this.updateData();
       this.setSortDirectionSymbols();
-      
     }
 
     updateData(){
@@ -59,13 +58,13 @@ export class AllCheckoutsComponent implements OnInit {
     }
   
     setSortDirectionSymbols() {
-      console.log("Category: "+ this.sortCategory + " Dir: " + this.sortDirection);
+
       switch(this.sortDirection){
         case '':
           this.sortDirectionSymbols.set(this.sortCategory, "-");
           break;
         case 'asc': 
-          this.sortDirectionSymbols.set(this.sortCategory, "↑");  
+          this.sortDirectionSymbols.set(this.sortCategory, "↑");
           break;
         case 'desc':
           this.sortDirectionSymbols.set(this.sortCategory, "↓");
@@ -111,8 +110,14 @@ export class AllCheckoutsComponent implements OnInit {
       this.updateData();
     }
 
+
+
     filterData($event: any): void{
       // apply filter with custom filter predicate
+      this.dataSource.filterPredicate = (data: any, filter: string) => {
+        return data.borrowedBook.title.toLowerCase().includes(filter)
+      };
+      
       this.dataSource.filter = $event.target.value.trim().toLowerCase();
     }
 
