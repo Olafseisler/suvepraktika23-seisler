@@ -1,74 +1,27 @@
-# Test assignment
+CGI Summer Internship
 
-Welcome to CGI test assignment!
-This is the project template which contains Angular front-end and Spring Boot back-end
+This is my take at implementing the required tasks for the summer internship application assingment.
 
-## Setting up Spring Boot application.
+At first glance all the tasks seemed conceptually simple, albeit I was a little confused that the internship ad asked for Java knowledge, whilst most if not all of the assignment was about fleshing out a frontend for a web app. Problem was that I didn’t know any Angular. Nor the Spring backend for that matter. 
 
-1. Make sure you have installed Java. For development OpenJDK 11 from [Adoptium](https://adoptium.net/) should be used.
-2. Install Intellij IDEA Commmunity edition
-3. Import the Maven project
-4. Run the LibraryApplication from IDE.
+I found most challenging integrating the existing code with the way Angular does things.
+I have some experience with Vue, which made understanding the code somewhat simpler. However, 
+every JS framework has its own syntax and finding out what works under which condition takes some time.
 
-However, you can also install Maven and run the back-end from terminal with
-`mvn spring-boot:run` in project directory
-(make sure your JAVA_HOME variable is set up to point to
-your Java 11 installation in that case)
+I started off by building a simple book info view page, mostly following the style of the existing components. Adding new pages and connecting them via routes was easy, but more dynamic components like the sortable, filterable list took some research.
 
-## Setting up Angular application.
 
-To get Angular app up and running you need to:
+I focused on making the UI as minimalistic as possible. The app is no-frills basic so the UI should reflect that and not confuse the user. A navbar at the top, a couple lists and a book entry form should suffice. Ideally there would be an account system that would show the checkout
+data and favorites for each user, but building while just learning Angular and Spring seemed too ambitious considering the deadline. 
 
-1. Make sure you have [NodeJS](https://nodejs.org/en/download/) version 18+ installed.
-2. Open the terminal.
-3. Navigate to frontend project `cd frontend/`
-4. Install all dependencies with npm `npm install`. NB: This might take a while.
-5. Start the development server `npm run start`.
-   Frontend runs on port 4200, so make sure it's not in use.
-   
-   First build takes a lot of time, so be patient...
+Communicating with the backend was a challenge of its own. The Spring-based server still confuses me. It seems like a huge mess - abstraction upon abstraction, following references and class relationships often led me nowhere. 
+Thankfully most of the API endpoints worked and I just had to figure out how to correctly use asycnhronous calls to these methods.
 
-   ![Compiling](https://imgs.xkcd.com/comics/compiling.png)
-6. Once development server is running, open app at http://localhost:4200. If you can see a list of books then it means that you have sucessfully set up and run the application
-7. Start coding :)
+Despite problems with getting started in Angular, the framework is surprisingly intuitive and offers ways to get things done with fewer layers
+of indirection than Vue. Spring seems far more alien and I have a lot to learn before I feel ready to dive into that.
 
-##General guidelines
+Overall the project lacks some finish but since it covers all but one of the necessary functionalities I still consider it a success.
 
-* Tasks don't have to be completed in order.
-* Try to complete as many as possible. 
-* You are free to modify both front-end and back-end as you deem necessary. This includes the option to use another front-end framework if you wish.
-* Regarding UI design, you are also free to choose: use Material Design components, your favorite library or implement everything yourself.
-* You can and are encouraged to also implement additional cool features that you think would
-really help showcase and distinguish your skills.
-
-* We appreciate if you use version control and commit often, so we can also get an insight into your
-workflow and how you approached the problems. 
-
-* Please document your added functionality, it would be helpful if you point out what was easy / difficult / interesting etc
-
-* If you are using in your solution code written by other people 
-(examples, tutorials, StackOverflow etc), then please cite the source for these blocks
-in your solution using comments. This helps us distinguish code written by you.
-
-If you have any questions, please reach out without hesitation. Best of luck!
-
-##Development tasks
-
-* Using backend api endpoint /getBooks, implement table of books view
-* Using backend api endpoint /getCheckouts, also implement the checkouts view. Suppport paging and sorting for both views
-* Implement individual book and checkout view, support basic CRUD operations, implement checking out and returning books
-* Implement searching for books using freetext criteria
-* Implement filtering for books by status
-* Implement saving / displaying favorite books for current user (you can use localStorage if you don't want to make back-end changes)
-* Add modal confirmation dialogues when deleting or checking out books
-* Implement a user-friendly way to display late checkouts
-
-#####Bonus tasks:
-* Implement advanced search form for books, where user can specify and combine different criterias (title, author year etc)
-* Add UI and backend tests 
-* Add support for multiple languages
-* Add support for multiple users and different user roles: reader and librarian.
-Reader should not be able to add / modify / delete existing book information or tamper with checkouts
-but should be able to save favorites and check out / return books (that they have checked out)
-* Containerize your application to make it cloud-native
-
+I had a lot of help from the following tutorials:
+https://www.youtube.com/watch?v=itq4KHN8buM&t=195s
+https://www.youtube.com/watch?v=Np3ULAMqwNo
